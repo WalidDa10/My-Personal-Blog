@@ -1,0 +1,83 @@
+
+
+<div class="admin-content">
+    <div class="page-header">
+        <h1>Create New Post</h1>
+        <a href="/dashborad" class="btn btn-text">← Back to Posts</a>
+    </div>
+
+    <form action="/add-post" method="POST" class="post-form">
+        <div class="form-group">
+            <label for="title">Post Title</label>
+            <input type="text" id="title" name="title" required class="form-control">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="slug">URL Slug</label>
+                <input type="text" id="slug" name="slug" class="form-control">
+                <small class="form-hint">Leave blank to auto-generate</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <input type="text" id="tags" name="tags" class="form-control">
+                <small class="form-hint">Comma separated</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea id="body" name="body" rows="15" required class="form-control"></textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="excerpt">Excerpt</label>
+                <textarea id="excerpt" name="excerpt" rows="4" class="form-control"></textarea>
+                <small class="form-hint">Optional summary for post listings</small>
+            </div>
+            
+            <div class="form-sidebar">
+                <div class="form-group">
+                    <!-- <label>Publish</label> -->
+                    <div class="publish-options">
+                        <!-- <label class="radio-option">
+                            <input type="radio" name="status" value="draft" checked>
+                            <span class="radio-label">Save as Draft</span>
+                        </label> -->
+                        <!-- <label class="radio-option">
+                            <input type="radio" name="status" value="published">
+                            <span class="radio-label">Publish Now</span>
+                        </label>
+                    </div> -->
+                </div>
+
+                <div class="form-group">
+                    <label for="featured_image">Featured Image</label>
+                    <input type="file" id="featured_image" name="featured_image" class="form-control">
+                    <small class="form-hint">Max 2MB (JPG, PNG)</small>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Post</button>
+                    <button type="button" class="btn btn-text" id="preview-btn">Preview</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+// Simple slug generator
+document.getElementById('title').addEventListener('input', function(e) {
+    const slugInput = document.getElementById('slug');
+    if (!slugInput.value) {
+        slugInput.value = e.target.value
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/[\s_-]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    }
+});
+</script>

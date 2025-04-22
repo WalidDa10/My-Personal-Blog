@@ -1,0 +1,46 @@
+
+<div class="admin-dashboard">
+    <div class="dashboard-header">
+        <h1>Dashboard</h1>
+        <div class="admin-actions">
+            <a href="/add-post" class="btn-primary">+ New Post</a>
+            <a href="/admin/logout" class="btn-logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <h3>Total Posts</h3>
+            <p><%= postCount %></p>
+        </div>
+        
+        
+    </div>
+
+    <div class="posts-table-container">
+        <h2>Recent Posts</h2>
+        <table class="posts-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% posts.forEach(post => { %>
+                    <tr>
+                        <td><%= post.title %></td>
+                        <td><%= new Date(post.createdAt).toLocaleDateString() %></td>
+                        <td class="actions">
+                            <a href="/edit-post/<%= post._id %>?_method=Delete" class="btn-edit">Edit</a>
+                            <form action="delete-post/<%= post._id %>?_method=Delete" method="POST" class="delete-form">
+                                <button type="submit" class="btn-delete">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>

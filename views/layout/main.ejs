@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=  'My Personal Blog' %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            
+            <nav class="navbar">
+                <a href="/home" class="logo">MyBlog</a>
+                <ul class="nav-links">
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+       
+        <div class="author">
+            <h2  class="author__heading" >Hi I'm Walid </h2>
+            <p class="author__body" >Backend Developer & ML enginer </p>
+        </div>
+        <!-- After the header, before main-content -->
+        <div class="search-bar-container">
+            <form action="/search" method="GET" class="search-form">
+                <input 
+                    type="search" 
+                    name="searchTerm" 
+                    placeholder="Search all posts..." 
+                    class="search-input"
+                    aria-label="Search blog posts"
+                >
+                <button type="submit" class="search-button">
+                    <svg class="search-icon" viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/>
+                    </svg>
+                    <span class="search-text">Search</span>
+                </button>
+            </form>
+        </div>
+
+        <main class="main-content">
+            <%- body %>  <!-- This is where other templates will be injected -->
+        </main>
+
+        <footer class="footer">
+            <p>&copy; <%= new Date().getFullYear() %>  Personal Blog. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="/js/main.js" defer></script>
+</body>
+</html>

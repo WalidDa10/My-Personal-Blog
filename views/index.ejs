@@ -1,0 +1,47 @@
+
+<div class="posts-container">
+    <% if (!searchR) { %>
+        <h1 class="page-title">Latest Posts</h1>    
+    <% } %>
+    
+    <% if (searchR) { %>
+        <h1 class="page-title" >Search Results: <%= posts.length %> </h1>
+    <% } %>
+    
+    
+    <% if (posts.length > 0) { %>
+        <div class="posts-grid">
+            <% posts.forEach(post => { %>
+                <article class="post-card">
+                    <div class="post-card__content">
+                        <h2 class="post-title">
+                            <a href="/post/<%= post._id %>"><%= post.title %></a>
+                        </h2>
+                        <p class="post-excerpt"><%= post.excerpt || post.body.substring(0, 150) + '...' %></p>
+                        <div class="post-meta">
+                            <span class="post-date"><%= new Date(post.createdAt).toLocaleDateString() %></span>
+                            <% if (post.tags && post.tags.length) { %>
+                                <span class="post-tags">
+                                    <% post.tags.forEach(tag => { %>
+                                        <a href="/tags/<%= tag %>" class="tag"><%= tag %></a>
+                                    <% }) %>
+                                </span>
+                            <% } %>
+                        </div>
+                    </div>
+                </article>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <div class="empty-state">
+            <p>No posts yet. Check back soon!</p>
+        </div>
+    <% } %>
+    <% if (nextPage !== null) { %>
+        <div class="pagination-container">
+            <a href="/home/?page=<%= nextPage %>" class="pagination-link">
+                ← View Older Posts
+            </a>
+        </div>
+    <% } %>
+    </div>
