@@ -2,7 +2,7 @@
 
 A modern personal blog built with Node.js, Express, and EJS, featuring a clean admin dashboard and responsive design.
 
-![Blog Screenshot](screenshot.png)
+![Blog Screenshot](public/img/screenshot.png)
 
 ## Features ✨
 
