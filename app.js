@@ -28,7 +28,7 @@ app.get('/test',(req, res)=>{
     res.send('Hello Front from the back')
 })
 
-mongoose.connect('mongodb://admin:admin@localhost:27017/MyBlog?authSource=admin')
+mongoose.connect(process.env.MONGODB_URI)
 
 const db = mongoose.connection;
 
