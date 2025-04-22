@@ -27,11 +27,9 @@ A modern personal blog built with Node.js, Express, and EJS, featuring a clean a
 | Backend         | Node.js, Express.js |
 | Database        | MongoDB (or your DB) |
 | Authentication  | Passport.js (or your solution) |
-| Deployment      | Render/Heroku/Vercel |
 
 ## Installation 💻
 
 1. **Clone the repository**
    ```bash
    git clone https://github.com/WalidDa10/My-Personal-Blog.git
-   cd My-Personal-Blog
