@@ -5,7 +5,7 @@ A modern personal blog built with Node.js, Express, and EJS, featuring a clean a
 
 ![](public/img/screenshot.png)
 
-![](public/img/Screenshot(2).png)
+![](public/img/Screenshot_2.png)
 
 
 
